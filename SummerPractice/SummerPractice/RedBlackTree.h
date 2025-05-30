@@ -1,9 +1,9 @@
 #pragma once
 #include "TreeNode.h"
-#include <iostream>
 
 template <typename T>
-class RedBlackTree {
+class RedBlackTree 
+{
 public:
     TreeNode<T>* root;
     TreeNode<T>* empty;
@@ -14,7 +14,7 @@ public:
     RedBlackTree& operator=(const RedBlackTree& other);
 
     void add(const T& value);
-    bool find(const T& value) const;
+    bool find(const T& value) ;
 
     friend std::ostream& operator<<(std::ostream& os, const RedBlackTree& tree) {
         tree.recursivePrint(os, tree.root, "", false);
@@ -111,8 +111,9 @@ void RedBlackTree<T>::add(const T& value) {
 }
 
 template <typename T>
-bool RedBlackTree<T>::find(const T& value) const {
+bool RedBlackTree<T>::find(const T& constValue)  {
     TreeNode<T>* current = root;
+    T value = constValue;
     while (current != empty) {
         if (value == current->value) {
             return true;
@@ -217,9 +218,9 @@ void RedBlackTree<T>::recursivePrint(std::ostream& os, TreeNode<T>* node, const 
     if (node != empty) {
         os << prefix;
         os << (isLeft ? "|-- " : "|-- ");
-        os << node->value << (node->isRed ? "|- (R)" : "|- (B)") << std::endl;
-        recursivePrint(os, node->right, prefix + (isLeft ? "|  " : "    "), true);
-        recursivePrint(os, node->left, prefix + (isLeft ? "|   " : "    "), false);
+        os << node->value << (node->isRed ? " (R)" : " (B)") << std::endl;
+        recursivePrint(os, node->right, prefix + (isLeft ? "   " : "    "), true);
+        recursivePrint(os, node->left, prefix + (isLeft ? "    " : "    "), false);
     }
 }
 

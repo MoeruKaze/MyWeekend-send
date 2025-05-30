@@ -127,11 +127,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="MyDateTime.cpp" />
     <ClCompile Include="RedBlackTree.cpp" />
     <ClCompile Include="SummerPractice.cpp" />
     <ClCompile Include="TreeNode.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MyDateTime.h" />
     <ClInclude Include="RedBlackTree.h" />
     <ClInclude Include="TreeNode.h" />
   </ItemGroup>
